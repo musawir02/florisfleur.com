@@ -116,7 +116,7 @@ include("header.php");
 
                 <!-- BOX FLOWERS -->
                 <?php
-                for ($i = 1; $i <= 12; $i++) {
+                for ($i = 1; $i <= 38; $i++) {
                     $siV = ($i < 10) ? "0" . $i : $i;
                     $waLink = "https://wa.me/971523641716?text=Hi%20I%27m%20interested%20in%20Box%20Flower%20" . $siV;
                 ?>

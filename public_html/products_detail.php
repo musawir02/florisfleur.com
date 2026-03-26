@@ -86,11 +86,11 @@ include("header.php");
                                          <div class="col-xs-12 col-sm-6 col-md-4">
                                             <div class="blog-wrapper">
                                                 <div class="entry-thumbnail">
-                                                    <a href="#"><img src="images/products/baskets/baskets_<?=$siV?>.jpg" alt="Blissful Harmony" title="Blissful Harmony"   width="485" height="592" /></a>
+                                                    <a href="#"><img src="images/products/baskets/baskets_<?=$siV?>.jpg" alt="Baskets <?=$siV?>" title="Baskets <?=$siV?>"   width="485" height="592" /></a>
                                                 </div>
                                                 <header class="entry-header">
                                                     <div class="entry-meta">
-                                                        <div class="entry-title">Blissful Harmony</div>
+                                                        <div class="entry-title">Baskets <?=$siV?></div>
                                                         <span class="meta-author">Item Code <a href="#">BK<?=$siV?></a></span>
                                                     </div> 
                                                 </header>
@@ -100,7 +100,7 @@ include("header.php");
                                     }
                                 }    
                                 elseif ($cidV=="3") {
-                                    for ($i=1;$i<=12;$i++) {  
+                                    for ($i=1;$i<=38;$i++) {  
                                         if ($i<10) { $siV="0".$i;}
                                         else  { $siV=$i;}
                                         if ($i==1) {$clsV="first";}
@@ -110,11 +110,11 @@ include("header.php");
                                         <div class="col-xs-12 col-sm-6 col-md-4">
                                             <div class="blog-wrapper">
                                                 <div class="entry-thumbnail">
-                                                    <a href="#"><img src="images/products/boxflowers/boxflowers_<?=$siV?>.jpg" alt="Box or Vase Arrangements" title="Box or Vase Arrangements"  width="485" height="592" /></a>
+                                                    <a href="#"><img src="images/products/boxflowers/boxflowers_<?=$siV?>.jpg" alt="Box Flowers Arrangement <?=$siV?>" title="Box Flowers Arrangement <?=$siV?>"  width="485" height="592" /></a>
                                                 </div>
                                                 <header class="entry-header">
                                                     <div class="entry-meta">
-                                                        <div class="entry-title">Box or Vase Arrangements</div>
+                                                        <div class="entry-title">Box Flowers <?=$siV?></div>
                                                         <span class="meta-author">Item Code <a href="#">BV<?=$siV?></a></span>
                                                     </div> 
                                                 </header>
