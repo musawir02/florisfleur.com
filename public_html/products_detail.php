@@ -41,10 +41,18 @@ include("header.php");
                      <div class="row">     
                                          
                              
+<style>
+    /* Force consistent grid aspect ratio for all product images in detail view */
+    .blog-wrapper .entry-thumbnail img {
+        height: 450px !important;
+        object-fit: cover !important;
+        width: 100% !important;
+    }
+</style>
                              <?php
                                 $siV="";$clsV="";
                                 if ($cidV=="1") {
-                                    for ($i=1;$i<=37;$i++) {  
+                                    for ($i=1;$i<=98;$i++) {  
                                         if ($i<10) { $siV="0".$i;}
                                         else  { $siV=$i;}
                                         if ($i==1) {$clsV="first";}
@@ -54,11 +62,11 @@ include("header.php");
                                          <div class="col-xs-12 col-sm-6 col-md-4">
                                             <div class="blog-wrapper">
                                                 <div class="entry-thumbnail">
-                                                    <a href="#"><img src="images/products/bouquets/bouquets_<?=$siV?>.jpg" alt="Peony Roses Bouquet" title="Peony Roses Bouquet" width="485" height="592" /></a>
+                                                    <a href="#"><img src="images/products/bouquets/bouquets_<?=$siV?>.jpg" alt="Bouquets <?=$siV?>" title="Bouquets <?=$siV?>" width="485" height="592" /></a>
                                                 </div>
                                                 <header class="entry-header">
                                                     <div class="entry-meta">
-                                                        <div class="entry-title">Peony Roses Bouquet</div>
+                                                        <div class="entry-title">Bouquets <?=$siV?></div>
                                                         <span class="meta-author">Item Code <a href="#">BQ<?=$siV?></a></span>
                                                     </div> 
                                                 </header>
