@@ -28,6 +28,7 @@ session_start();
     
     <link href="css/jquery.fancybox.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/dark-theme.css" rel="stylesheet">
     
     <link rel="stylesheet" type="text/css" href="css/revolution/settings.css">
     <link rel="stylesheet" type="text/css" href="css/revolution/layers.css">
@@ -76,7 +77,7 @@ session_start();
                 <div class="container">
                     <div class="row menu-row">
                         <div class="site-logo col-lg-3 col-xs-9">
-                             <a href="index.php" class="logo"><img src="images/logo.png" alt="Floris Fleur" class="Floris Fleur logo"></a>
+                             <a href="index.php" class="logo"><img src="images/logo_white.png" alt="Floris Fleur" class="Floris Fleur logo"></a>
                             <h1 class="site-title"><a href="#">Floris Fleur</a></h1>
                             <h2 class="site-description">Floris Fleur</h2>
                         </div>
