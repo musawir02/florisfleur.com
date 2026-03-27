@@ -61,6 +61,44 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/responsive.css" rel="stylesheet">
+    <style>
+        .card-slideshow {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .card-slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .card-slideshow img.active {
+            opacity: 1;
+        }
+        /* Override existing icon background styles */
+        .grd-icon-box-1 .icon .icon-content .svg-icon:before {
+            display: none !important;
+        }
+        /* Ensure title is below slideshow */
+        .grd-icon-box-1 .icon {
+            margin: 30px 0 20px !important;
+        }
+    </style>
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
@@ -220,9 +258,10 @@ session_start();
                                 
                                 <a href="#" class="icon">
                                     <div class="icon-content">
-                                        <span class="svg-icon">
-                                        <i class="flaticon-leaves"></i>
-                                      </span>
+                                        <div class="card-slideshow" id="bouquets-slideshow">
+                                            <img src="images/products/bouquets/bouquets_01.jpg" class="active" alt="Bouquets">
+                                            <img src="images/products/bouquets/bouquets_02.jpg" alt="Bouquets">
+                                        </div>
                                     </div>
                                 </a>
                                 <a href="#" class="emtry-title">
@@ -244,9 +283,10 @@ session_start();
                             <div class="icon-box-wrapter">                                
                                 <a href="#" class="icon">
                                     <div class="icon-content">
-                                        <span class="svg-icon background-1">
-                                        <i class="flaticon-flower-pot"></i>
-                                        </span>
+                                        <div class="card-slideshow" id="baskets-slideshow">
+                                            <img src="images/products/baskets/baskets_01.jpg" class="active" alt="Baskets">
+                                            <img src="images/products/baskets/baskets_02.jpg" alt="Baskets">
+                                        </div>
                                     </div>
                                 </a>
                                 <a href="#" class="emtry-title">
@@ -270,9 +310,10 @@ session_start();
                             <div class="icon-box-wrapter">                                
                                 <a href="#" class="icon">
                                     <div class="icon-content">
-                                         <span class="svg-icon">
-                                         <i class="flaticon-park"></i>
-                                         </span>
+                                         <div class="card-slideshow" id="boxflowers-slideshow">
+                                            <img src="images/products/boxflowers/boxflowers_01.jpg" class="active" alt="Box Flowers">
+                                            <img src="images/products/boxflowers/boxflowers_02.jpg" alt="Box Flowers">
+                                        </div>
                                     </div>
                                 </a>
                                 <a href="#" class="emtry-title">
@@ -890,6 +931,45 @@ session_start();
     
     <script src="js/scripts.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+        function startSlideshow(id, prefix, count) {
+            const container = document.getElementById(id);
+            if (!container) return;
+            const imgs = container.getElementsByTagName('img');
+            let currentIdx = 1;
+            let imgActive = 0;
+
+            setInterval(() => {
+                currentIdx++;
+                if (currentIdx > count) currentIdx = 1;
+
+                const nextFileIdx = currentIdx < 10 ? '0' + currentIdx : currentIdx;
+                const nextImgIdx = (imgActive + 1) % 2;
+
+                // Preload the next image
+                const tempImg = new Image();
+                tempImg.src = `images/products/${prefix}/${prefix}_${nextFileIdx}.jpg`;
+                tempImg.onload = () => {
+                    imgs[nextImgIdx].src = tempImg.src;
+                    setTimeout(() => {
+                        imgs[imgActive].classList.remove('active');
+                        imgs[nextImgIdx].classList.add('active');
+                        imgActive = nextImgIdx;
+                    }, 50); // Small delay to ensure browser processed the src change
+                };
+            }, 4000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait a bit for other heavy scripts to load
+            setTimeout(() => {
+                startSlideshow('bouquets-slideshow', 'bouquets', 98);
+                startSlideshow('baskets-slideshow', 'baskets', 17);
+                startSlideshow('boxflowers-slideshow', 'boxflowers', 38);
+            }, 1000);
+        });
+    </script>
 
     <div class="wabtn" id="wabutton">
         <style> [wa-tooltip] { position: relative; cursor: default;  &:hover { &::before { content: attr(wa-tooltip); font-size: 16px; text-align: center; position: absolute; display: block; right: null; left: calc(0% + 100px); min-width: 200px; max-width: 200px; bottom: calc(100% + 40px); transform: translate(-50%); animation: fade-in 500ms ease; background: #00E785; border-radius: 4px; padding: 10px; color: #ffffff; z-index: 1; } } }  @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }  [wa-tooltip] {  }  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }</style>
