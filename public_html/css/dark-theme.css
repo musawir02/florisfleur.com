@@ -291,3 +291,266 @@ select {
 .grd-contact-box .title {
     color: #ffffff !important;
 }
+
+/* ============================================================
+   HOME PAGE — CARD SLIDESHOW STYLES
+   ============================================================ */
+
+.card-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 5px;
+}
+.card-slideshow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%);
+    z-index: 2;
+}
+.card-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+}
+.card-slideshow img.active {
+    opacity: 1;
+}
+
+/* Feature cards (Bouquets / Baskets / Box Flowers / Welcome) */
+.grd-icon-box-1, .grd-icon-box-3 {
+    position: relative !important;
+    background: transparent !important;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    border: none !important;
+    box-shadow: none !important;
+}
+.grd-icon-box-3 {
+    min-height: 400px !important;
+}
+
+/* Welcome card background image */
+.welcome-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/shop_image.png') center center no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+.welcome-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%);
+    z-index: 2;
+}
+
+/* Inner content wrapper for feature cards */
+.grd-icon-box-1 .icon-box-wrapter,
+.grd-icon-box-3 .icon-box-wrapter {
+    position: relative !important;
+    z-index: 10 !important;
+    padding: 30px 20px !important;
+    background: transparent !important;
+}
+.box_btn {
+    position: relative !important;
+    z-index: 11 !important;
+}
+
+/* Text colour & shadow within feature cards */
+.grd-icon-box-1 .emtry-title p,
+.grd-icon-box-1 .content .descreption span,
+.grd-icon-box-3 .emtry-title .title,
+.grd-icon-box-3 .content .descreption p {
+    color: #fff !important;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,0.5);
+    font-size: 14px;
+}
+.grd-icon-box-1 .BOUQUETS,
+.grd-icon-box-1 .title,
+.grd-icon-box-3 .title {
+    color: #fff !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-bottom: 15px !important;
+    text-transform: uppercase;
+}
+
+/* Hide original icon pseudo-elements & borders */
+.grd-icon-box-1 .icon .icon-content .svg-icon:before,
+.grd-icon-box-3 .icon .icon-content .svg-icon:before {
+    display: none !important;
+}
+.grd-icon-box-1:before, .grd-icon-box-1:after,
+.grd-icon-box-3:before, .grd-icon-box-3:after {
+    display: none !important;
+}
+.grd-icon-box-1 .icon, .grd-icon-box-3 .icon {
+    margin: 0 0 15px !important;
+}
+.grd-icon-box-1 .icon .icon-content .svg-icon i,
+.grd-icon-box-3 .icon .icon-content .svg-icon i {
+    font-size: 32px !important;
+}
+
+/* ============================================================
+   HOME PAGE — MOBILE-ONLY OVERRIDES
+   ============================================================ */
+
+@media (max-width: 767px) {
+
+    /* Hide hero slider */
+    .rev_slider_wrapper {
+        display: none !important;
+    }
+
+    /* Welcome card title — bigger & bolder */
+    .grd-icon-box-3 .emtry-title .title,
+    .grd-icon-box-3 .title {
+        font-size: 32px !important;
+        font-weight: 900 !important;
+        letter-spacing: 2px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Push content lower so shop background is visible */
+    .grd-icon-box-3 .icon-box-wrapter {
+        padding-top: 60% !important;
+        padding-bottom: 30px !important;
+    }
+
+    /* Hide Our Products gallery section */
+    .gallery-1 {
+        display: none !important;
+    }
+
+    /* View More collapse */
+    .mobile-collapsible {
+        display: none;
+    }
+    .mobile-view-more-btn {
+        display: inline-block;
+        margin-top: 8px;
+        color: #9cc212;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1px solid #9cc212;
+        border-radius: 20px;
+        padding: 4px 14px;
+        font-size: 13px;
+        background: transparent;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-view-more-btn { display: none !important; }
+    .mobile-collapsible   { display: inline !important; }
+}
+
+/* ============================================================
+   HOME PAGE — CLASSY SCROLL ANIMATIONS
+   ============================================================ */
+
+@keyframes ff-fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ff-fadeLeft {
+    from { opacity: 0; transform: translateX(-28px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes ff-fadeRight {
+    from { opacity: 0; transform: translateX(28px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes ff-fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes ff-scaleIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.ff-animate {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+.ff-animate.ff-visible {
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    animation-duration: 0.8s;
+}
+
+.ff-animate.ff-fade-up.ff-visible    { animation-name: ff-fadeUp; }
+.ff-animate.ff-fade-left.ff-visible  { animation-name: ff-fadeLeft; }
+.ff-animate.ff-fade-right.ff-visible { animation-name: ff-fadeRight; }
+.ff-animate.ff-fade-in.ff-visible    { animation-name: ff-fadeIn; }
+.ff-animate.ff-scale-in.ff-visible   { animation-name: ff-scaleIn; }
+
+.ff-delay-1 { animation-delay: 0.1s  !important; }
+.ff-delay-2 { animation-delay: 0.2s  !important; }
+.ff-delay-3 { animation-delay: 0.35s !important; }
+.ff-delay-4 { animation-delay: 0.5s  !important; }
+.ff-delay-5 { animation-delay: 0.65s !important; }
+
+/* ============================================================
+   MOBILE MENU & HEADER FIXES
+   ============================================================ */
+
+/* Make mobile menu toggle dots/lines visible (Theme Green) */
+.navbar-toggle span.navbar-icon .navbars-line,
+.navbar-toggle span.navbar-icon .navbars-line:before,
+.navbar-toggle span.navbar-icon .navbars-line:after,
+#mf-navbar-toggle .navbars-line,
+#mf-navbar-toggle .navbars-line:before,
+#mf-navbar-toggle .navbars-line:after {
+    background-color: #9cc212 !important;
+}
+
+/* Ensure mobile header is dark but distinct */
+.header-v1 .header-main {
+    background-color: #1a1a1a !important;
+}
+
+/* Off-canvas mobile menu styling */
+.primary-mobile-nav {
+    background-color: #1e1e1e !important;
+}
+.primary-mobile-nav .mobile-nav-content .menu li a {
+    color: #ffffff !important;
+    border-bottom: 1px solid #333 !important;
+}
+.primary-mobile-nav .mobile-nav-content .menu li.current-menu-item > a {
+    color: #9cc212 !important;
+}
+.primary-mobile-nav .close-canvas-mobile-panel {
+    color: #ffffff !important;
+}

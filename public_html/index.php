@@ -6,8 +6,8 @@ session_start();
 <html lang="en"> 
 <head>
     <meta charset="utf-8"> 
-    <meta name="keywords" content="flower shop Al Barsha, flower delivery Dubai, bouquet delivery UAE, premium rose bouquets Dubai, exotic flower delivery in Dubai, flower delivery Al Barsha Dubai, best florist in Al Barsha Dubai, flower shop in Al Barsha 1 / 2 / 3, ​florist in Al Barsha Dubai, ​flower delivery Al Barsha south, ​best flower shop near Al Barsha Mall, ​flowers near Barsha Heights, ​florist near Dubai Hills Estate, same day flower delivery Al Barsha, ​60 minute flower delivery Dubai (A major 2026 trend), ​online flower delivery Al Barsha, ​fresh flower bouquets Dubai delivery, ​affordable flower shop Al Barsha" />
-    <meta name="description" content="Buy fresh flowers from the best flower shop in Al Barsha, Dubai. Same-day delivery available across Dubai, florist in Al Barsha Dubai, ​flower delivery Al Barsha south, ​best flower shop near Al Barsha Mall, ​flowers near Barsha Heights, ​florist near Dubai Hills Estate, ​60 minute flower delivery Dubai (A major 2026 trend), ​online flower delivery Al Barsha, ​fresh flower bouquets Dubai delivery, ​affordable flower shop Al Barsha">
+    <meta name="keywords" content="flower shop Al Barsha, flower delivery Dubai, bouquet delivery UAE, premium rose bouquets Dubai, exotic flower delivery in Dubai, flower delivery Al Barsha Dubai, best florist in Al Barsha Dubai, flower shop in Al Barsha 1 / 2 / 3, â€‹florist in Al Barsha Dubai, â€‹flower delivery Al Barsha south, â€‹best flower shop near Al Barsha Mall, â€‹flowers near Barsha Heights, â€‹florist near Dubai Hills Estate, same day flower delivery Al Barsha, â€‹60 minute flower delivery Dubai (A major 2026 trend), â€‹online flower delivery Al Barsha, â€‹fresh flower bouquets Dubai delivery, â€‹affordable flower shop Al Barsha" />
+    <meta name="description" content="Buy fresh flowers from the best flower shop in Al Barsha, Dubai. Same-day delivery available across Dubai, florist in Al Barsha Dubai, â€‹flower delivery Al Barsha south, â€‹best flower shop near Al Barsha Mall, â€‹flowers near Barsha Heights, â€‹florist near Dubai Hills Estate, â€‹60 minute flower delivery Dubai (A major 2026 trend), â€‹online flower delivery Al Barsha, â€‹fresh flower bouquets Dubai delivery, â€‹affordable flower shop Al Barsha">
     <meta name="author" content="Floris Fleur Flowers">
     <link rel="canonical" href="https://florisfleur.com/products_detail.php" />
     <link rel="home" href="https://florisfleur.com/" />
@@ -61,126 +61,6 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/responsive.css" rel="stylesheet">
-    <style>
-        .card-slideshow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            border-radius: 5px;
-        }
-        .card-slideshow::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
-            z-index: 2;
-        }
-        .card-slideshow img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            z-index: 1;
-        }
-        .card-slideshow img.active {
-            opacity: 1;
-        }
-        .grd-icon-box-1, .grd-icon-box-3 {
-            position: relative !important;
-            background: transparent !important;
-            min-height: 480px; /* Base height for category cards */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow: hidden;
-            border: none !important;
-            box-shadow: none !important;
-        }
-        /* Specific height reduction for Welcome card if requested */
-        .grd-icon-box-3 {
-            min-height: 400px !important; 
-        }
-        .welcome-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('images/shop_image.png') center center no-repeat;
-            background-size: cover;
-            z-index: 1;
-        }
-        .welcome-bg::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%);
-            z-index: 2;
-        }
-        .icon-box-wrapter {
-            position: relative !important;
-            z-index: 10 !important;
-            padding: 30px 20px !important; /* Slightly tighter padding for 4 columns */
-            background: transparent !important;
-        }
-        .box_btn {
-            position: relative !important;
-            z-index: 11 !important;
-        }
-        .grd-icon-box-1 .emtry-title p, 
-        .grd-icon-box-1 .content .descreption span,
-        .grd-icon-box-3 .emtry-title .title,
-        .grd-icon-box-3 .content .descreption p {
-            color: #fff !important;
-            text-shadow: 2px 2px 10px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,0.5);
-            font-size: 14px; /* Slightly smaller text for 4 columns */
-        }
-        .grd-icon-box-1 .BOUQUETS,
-        .grd-icon-box-1 .title,
-        .grd-icon-box-3 .title {
-            color: #fff !important;
-            font-weight: 700;
-            letter-spacing: 1px;
-            font-size: 20px; /* Smaller title to fit columns */
-            margin-bottom: 15px !important;
-            text-transform: uppercase;
-        }
-        /* Hide original icon background and any extra borders */
-        .grd-icon-box-1 .icon .icon-content .svg-icon:before,
-        .grd-icon-box-3 .icon .icon-content .svg-icon:before {
-            display: none !important;
-        }
-        .grd-icon-box-1:before, .grd-icon-box-1:after,
-        .grd-icon-box-3:before, .grd-icon-box-3:after {
-            display: none !important;
-        }
-        /* Custom WhatsApp or Icon if needed above image */
-        .grd-icon-box-1 .icon, .grd-icon-box-3 .icon {
-            margin: 0 0 15px !important;
-        }
-        .grd-icon-box-1 .icon .icon-content .svg-icon i,
-        .grd-icon-box-3 .icon .icon-content .svg-icon i {
-            font-size: 32px !important;
-        }
-        /* Adjust the slideshow overlay to be slightly darker for better text readability on transparent cards */
-        .card-slideshow::after {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%);
-        }
-    </style>
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
@@ -463,12 +343,12 @@ session_start();
                             <div class="entry-content">
                               <p>
                               We set ourselves apart with our unwavering commitment to freshness and craftsmanship.
-               Our signature 5-Day Freshness Guarantee ensures your flowers stay vibrant and beautiful
+                               <span class="mobile-collapsible"> Our signature 5-Day Freshness Guarantee ensures your flowers stay vibrant and beautiful
                 long after delivery, making us the preferred choice for anyone seeking the best flower shop
                   in Dubai. With years of collective experience, our team of expert florists handcrafts
-                  every arrangement using only A1 grade, internationally sourced flowers.
+                  every arrangement using only A1 grade, internationally sourced flowers.</span>
                               </p>
-                          
+                              <button class="mobile-view-more-btn" onclick="mobileToggleText(this)">View More</button>
                           </div>
                         </div>
                     </div>
@@ -696,10 +576,10 @@ session_start();
                                 <i class="flaticon-quotation"></i>
                             </div>
                             <p class="content">
-                               “
+                               â€œ
                                  Really loved this new flower shop! The place looks fresh and welcoming, and their flowers are beautiful and long-lasting. The staff are super friendly and helped me pick the perfect bouquet. Definitely a great spot for anyone looking for quality flowers! 
                                         
-                               ”</p>
+                               â€</p>
                         </div>
                         <div class="box-avatar">
                             <img class="" src="images/avatar60x60.png" alt="1" title="1" width="80" height="80">
@@ -720,9 +600,9 @@ session_start();
                                 <i class="flaticon-quotation"></i>
                             </div>
                             <p class="content">
-                                 “
+                                 â€œ
                                   I had a wonderful experience with this flower shop. The flowers were fresh, well arranged, and smelled amazing. The staff was very friendly and helped me choose the perfect bouquet. Delivery was on time and neatly packed. I will definitely order again.
-                                ”</p>
+                                â€</p>
                         </div>
                         <div class="box-avatar">
                             <img class="" src="images/avatar60x60.png" alt="1" title="1" width="80" height="80">
@@ -743,9 +623,9 @@ session_start();
                                 <i class="flaticon-quotation"></i>
                             </div>
                             <p class="content"> 
-                              “
-                                Floris fleur flowers trading llc nailed it! 🌺👌 Fresh flowers, beautiful arrangements, and top-notch service. Ordered a bouquet for a friend's birthday and it was a hit 🎂. Prices were super reasonable too. Will definitely be back. …
-                              ”</p>
+                              â€œ
+                                Floris fleur flowers trading llc nailed it! ðŸŒºðŸ‘Œ Fresh flowers, beautiful arrangements, and top-notch service. Ordered a bouquet for a friend's birthday and it was a hit ðŸŽ‚. Prices were super reasonable too. Will definitely be back. â€¦
+                              â€</p>
                         </div>
                         <div class="box-avatar">
                             <img class="" src="images/avatar60x60.png" alt="1" title="1" width="80" height="80">
@@ -955,19 +835,11 @@ session_start();
    
     <div class="primary-mobile-nav" id="primary-mobile-nav" role="navigation">
         <div class="mobile-nav-content">
-            <a href="#" class="close-canvas-mobile-panel">×</a>
+            <a href="#" class="close-canvas-mobile-panel">Ã—</a>
             <ul class="menu">
             
             <li class="current-menu-item"><a href="index.php">Home</a></li>
                 <li><a href="about.php">About Us</a></li>
-                <li><a href="#" >Services</a>
-                    <ul class="sub-menu">
-                         <li><a href="products_detail.php?cid=1"> Bouquets</a></li>
-                                                <li><a href="products_detail.php?cid=2"> Baskets</a></li>
-                                                <li><a href="products_detail.php?cid=3"> Box Flowers</a></li>
-                                                <li><a href="products_detail.php?cid=4"> Gift Arrangements</a></li>
-                    </ul>
-                </li>
                 <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="testimonials.php">Testimonials</a></li>                                       
                 <li><a href="contact.php">Contact</a></li>  
@@ -1015,6 +887,7 @@ session_start();
     
     <script src="js/scripts.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/ff-animations.js"></script>
 
     <script>
         function startSlideshow(id, prefix, count) {
@@ -1053,6 +926,24 @@ session_start();
                 startSlideshow('boxflowers-slideshow', 'boxflowers', 38);
             }, 1000);
         });
+
+        // Mobile "View More" toggle â€” only active on mobile
+        function mobileToggleText(btn) {
+            if (window.innerWidth > 767) return;
+            var collapsible = btn.previousElementSibling ? btn.previousElementSibling.querySelector('.mobile-collapsible') : null;
+            // Find the closest .mobile-collapsible sibling inside the same parent
+            var parent = btn.parentElement;
+            var span = parent.querySelector('.mobile-collapsible');
+            if (!span) return;
+            if (span.style.display === 'inline' || span.style.display === '') {
+                // Already expanded by JS â†’ collapse
+                span.style.display = 'none';
+                btn.textContent = 'View More';
+            } else {
+                span.style.display = 'inline';
+                btn.textContent = 'View Less';
+            }
+        }
     </script>
 
     <div class="wabtn" id="wabutton">

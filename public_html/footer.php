@@ -1,4 +1,4 @@
-        <!-- footer -->
+﻿        <!-- footer -->
         <div class="footer-widgets">
             <div class="container">
                 <div class="row">
@@ -91,18 +91,10 @@
      
     <div class="primary-mobile-nav" id="primary-mobile-nav" role="navigation">
         <div class="mobile-nav-content">
-            <a href="#" class="close-canvas-mobile-panel">×</a>
+            <a href="#" class="close-canvas-mobile-panel">Ã—</a>
             <ul class="menu">
                 <li class="current-menu-item"><a href="index.php">Home</a></li>
                 <li><a href="about.php">About Us</a></li>
-                <li><a href="#" >Services</a>
-                    <ul class="sub-menu">
-                         <li><a href="products_detail.php?cid=1"> Bouquets</a></li>
-                                                <li><a href="products_detail.php?cid=2"> Baskets</a></li>
-                                                <li><a href="products_detail.php?cid=3"> Box Flowers</a></li>
-                                                <li><a href="products_detail.php?cid=4"> Gift Arrangements</a></li>
-                    </ul>
-                </li>
                 <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="testimonials.php">Testimonials</a></li>                                       
                 <li><a href="contact.php">Contact</a></li>  
@@ -146,6 +138,7 @@
     
     <script src="js/scripts.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/ff-animations.js"></script>
 
 
     <div class="wabtn" id="wabutton">
