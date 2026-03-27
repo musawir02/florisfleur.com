@@ -63,19 +63,24 @@ session_start();
     <link href="css/responsive.css" rel="stylesheet">
     <style>
         .card-slideshow {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-            position: relative;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .card-slideshow::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 2;
         }
         .card-slideshow img {
             width: 100%;
@@ -86,17 +91,94 @@ session_start();
             left: 0;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            z-index: 1;
         }
         .card-slideshow img.active {
             opacity: 1;
         }
-        /* Override existing icon background styles */
-        .grd-icon-box-1 .icon .icon-content .svg-icon:before {
+        .grd-icon-box-1, .grd-icon-box-3 {
+            position: relative !important;
+            background: transparent !important;
+            min-height: 480px; /* Base height for category cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        /* Specific height reduction for Welcome card if requested */
+        .grd-icon-box-3 {
+            min-height: 400px !important; 
+        }
+        .welcome-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/shop_image.png') center center no-repeat;
+            background-size: cover;
+            z-index: 1;
+        }
+        .welcome-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%);
+            z-index: 2;
+        }
+        .icon-box-wrapter {
+            position: relative !important;
+            z-index: 10 !important;
+            padding: 30px 20px !important; /* Slightly tighter padding for 4 columns */
+            background: transparent !important;
+        }
+        .box_btn {
+            position: relative !important;
+            z-index: 11 !important;
+        }
+        .grd-icon-box-1 .emtry-title p, 
+        .grd-icon-box-1 .content .descreption span,
+        .grd-icon-box-3 .emtry-title .title,
+        .grd-icon-box-3 .content .descreption p {
+            color: #fff !important;
+            text-shadow: 2px 2px 10px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,0.5);
+            font-size: 14px; /* Slightly smaller text for 4 columns */
+        }
+        .grd-icon-box-1 .BOUQUETS,
+        .grd-icon-box-1 .title,
+        .grd-icon-box-3 .title {
+            color: #fff !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 20px; /* Smaller title to fit columns */
+            margin-bottom: 15px !important;
+            text-transform: uppercase;
+        }
+        /* Hide original icon background and any extra borders */
+        .grd-icon-box-1 .icon .icon-content .svg-icon:before,
+        .grd-icon-box-3 .icon .icon-content .svg-icon:before {
             display: none !important;
         }
-        /* Ensure title is below slideshow */
-        .grd-icon-box-1 .icon {
-            margin: 30px 0 20px !important;
+        .grd-icon-box-1:before, .grd-icon-box-1:after,
+        .grd-icon-box-3:before, .grd-icon-box-3:after {
+            display: none !important;
+        }
+        /* Custom WhatsApp or Icon if needed above image */
+        .grd-icon-box-1 .icon, .grd-icon-box-3 .icon {
+            margin: 0 0 15px !important;
+        }
+        .grd-icon-box-1 .icon .icon-content .svg-icon i,
+        .grd-icon-box-3 .icon .icon-content .svg-icon i {
+            font-size: 32px !important;
+        }
+        /* Adjust the slideshow overlay to be slightly darker for better text readability on transparent cards */
+        .card-slideshow::after {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%);
         }
     </style>
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
@@ -252,16 +334,44 @@ session_start();
         <div class="whychooseus_1">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 nopadd">
+                    <!-- WELCOME CARD FIRST -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nopadd">
+                        <div class="grd-icon-box grd-icon-box-3 icon-theme-light  border">
+                            <div class="welcome-bg"></div>
+                            <div class="icon-box-wrapter">
+                                <a href="#" class="icon">
+                                    <div class="icon-content">
+                                        <span class="svg-icon" style="color: rgba(255,255,255,0.7); font-size: 40px;">
+                                            <i class="flaticon-leaves"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                                <a href="#" class="emtry-title">
+                                    <p class="title">WELCOME TO FLORIS FLUER</p>
+                                </a>
+                                <div class="content">
+                                    <div class="descreption">
+                                        <p>Dubai's destination for artistry and quality. Every bouquet is an experience delivered in bloom.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_btn"><a href="about.php">More details</a></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nopadd">
                         <div class="grd-icon-box grd-icon-box-1 icon-theme-light">
+                            <div class="card-slideshow" id="bouquets-slideshow">
+                                <img src="images/products/bouquets/bouquets_01.jpg" class="active" alt="Bouquets">
+                                <img src="images/products/bouquets/bouquets_02.jpg" alt="Bouquets">
+                            </div>
                             <div class="icon-box-wrapter">
                                 
                                 <a href="#" class="icon">
                                     <div class="icon-content">
-                                        <div class="card-slideshow" id="bouquets-slideshow">
-                                            <img src="images/products/bouquets/bouquets_01.jpg" class="active" alt="Bouquets">
-                                            <img src="images/products/bouquets/bouquets_02.jpg" alt="Bouquets">
-                                        </div>
+                                         <span class="svg-icon" style="color: rgba(255,255,255,0.7); font-size: 40px;">
+                                            <i class="flaticon-leaves"></i>
+                                         </span>
                                     </div>
                                 </a>
                                 <a href="#" class="emtry-title">
@@ -269,7 +379,7 @@ session_start();
                                 </a>
                                 <div class="content">
                                     <div class="descreption"><span>
-                                        Our fresh flower bouquet is beautifully hand-arranged using premium, seasonal blooms. Perfect for any occasion, each bouquet is crafted with care to deliver freshness, elegance, and long-lasting beauty.
+                                        Beautifully hand-arranged using premium, seasonal blooms. Precision and elegance in every bouquet.
                                         </span>
                                     </div>
                                 </div>
@@ -278,15 +388,18 @@ session_start();
                     </div>
                     
 
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 nopadd">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nopadd">
                         <div class="grd-icon-box grd-icon-box-1 icon-theme-dark radius-5 services-home-1 clearfix">
+                            <div class="card-slideshow" id="baskets-slideshow">
+                                <img src="images/products/baskets/baskets_01.jpg" class="active" alt="Baskets">
+                                <img src="images/products/baskets/baskets_02.jpg" alt="Baskets">
+                            </div>
                             <div class="icon-box-wrapter">                                
                                 <a href="#" class="icon">
                                     <div class="icon-content">
-                                        <div class="card-slideshow" id="baskets-slideshow">
-                                            <img src="images/products/baskets/baskets_01.jpg" class="active" alt="Baskets">
-                                            <img src="images/products/baskets/baskets_02.jpg" alt="Baskets">
-                                        </div>
+                                        <span class="svg-icon" style="color: rgba(255,255,255,0.7); font-size: 40px;">
+                                            <i class="flaticon-flower-pot"></i>
+                                        </span>
                                     </div>
                                 </a>
                                 <a href="#" class="emtry-title">
@@ -294,26 +407,25 @@ session_start();
                                 </a>
                                 <div class="content">
                                     <div class="descreption"><span>
-                                        &nbsp;
-                                        <br>
-                                       Our flower arrangements are made with fresh, handpicked flowers and stylish designs, suitable for all occasions with fast delivery available across Dubai. 
-                                        <br>
-                                         &nbsp;                   
+                                       Arrangements made with fresh, handpicked flowers and stylish designs for all occasions. 
                                     </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 nopadd">
+                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nopadd">
                         <div class="grd-icon-box grd-icon-box-1 icon-theme-light">
+                            <div class="card-slideshow" id="boxflowers-slideshow">
+                                <img src="images/products/boxflowers/boxflowers_01.jpg" class="active" alt="Box Flowers">
+                                <img src="images/products/boxflowers/boxflowers_02.jpg" alt="Box Flowers">
+                            </div>
                             <div class="icon-box-wrapter">                                
                                 <a href="#" class="icon">
                                     <div class="icon-content">
-                                         <div class="card-slideshow" id="boxflowers-slideshow">
-                                            <img src="images/products/boxflowers/boxflowers_01.jpg" class="active" alt="Box Flowers">
-                                            <img src="images/products/boxflowers/boxflowers_02.jpg" alt="Box Flowers">
-                                        </div>
+                                         <span class="svg-icon" style="color: rgba(255,255,255,0.7); font-size: 40px;">
+                                            <i class="flaticon-park"></i>
+                                         </span>
                                     </div>
                                 </a>
                                 <a href="#" class="emtry-title">
@@ -321,11 +433,7 @@ session_start();
                                 </a>
                                 <div class="content">
                                     <div class="descreption"><span>
-                                        &nbsp;
-                                        <br>
-                                      Our flower arrangements are made with fresh, handpicked flowers and stylish designs, suitable for all occasions with fast delivery available across Dubai.                                      
-                                        <br>
-                                         &nbsp;
+                                      Fresh, handpicked flowers in stylish gift boxes, suitable for all special occasions.                                      
                                     </span>
                                     </div>
                                 </div>
@@ -342,31 +450,7 @@ session_start();
         <div class="services-1">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="col-xs-12 grd-icon-box grd-icon-box-3 icon-theme-light  border">
-                            <div class="icon-box-wrapter">
-                                <a href="#" class="icon">
-                                    <div class="icon-content">
-                                        <span class="svg-icon"><img src="images/icon/leaves.png" alt=""></span>
-                                    </div>
-                                </a>
-                                <a href="#" class="emtry-title">
-                                    <p class="title">
-                                      WELCOME TO FLORIS FLUER 
-                                     </p>
-                                </a>
-                                <div class="content">
-                                    <div class="descreption">
-                                        <p>If you are searching for a flower shop in Dubai that combines artistry, quality, and exceptional service, The Floris Fleur Flowers is your destination. As the best flower shop near me for countless Dubai residents, we believe every bouquet is more than just a gift—it’s an experience, a memory, and a moment of joy delivered in bloom.</p>
-                                    
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box_btn"><a href="about.php">More details</a></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="grd-image-box-1 icon-theme-light">
                             <div class="entry-title"><a href="#"><h4 class="title">Fresh flowers from the best flower shop</h4></a></div>
                             <div class="entry-icon">
